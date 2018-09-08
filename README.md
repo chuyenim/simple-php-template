@@ -1,4 +1,4 @@
-# simple-php-template
+# Simple PHP template
 
 Very very simple php template class.
 
