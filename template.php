@@ -38,6 +38,28 @@ class Template {
         echo $this->content;
     }
 
+    public function snippet($key) {
+        if (isset($this->$key)) {
+            return $this->$key;
+        }
+    }
+    
+    public function assign($element, $content = null) {
+        $this->$element = $content;
+    }
+    
+    public function element($file) {
+        if (!file_exists($this->template_dir.$file)) {
+            $content = sprintf('The element file %s can not found!', $this->template_dir.$file);
+            return $content;
+        }
+        
+        ob_start();
+        include($this->template_dir.$file);
+        $content = ob_get_clean();
+        return $content;
+    }
+
     public function render($file) {
         if (!file_exists($this->template_dir.$file)) {
             die(sprintf('The template file %s can not found!', $this->template_dir.$file));

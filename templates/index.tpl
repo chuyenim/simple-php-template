@@ -1,8 +1,11 @@
 <?php $this->layout('layout.tpl'); ?>
 
+<?php $this->assign('menu', $this->element('menu.tpl')); ?>
 
-<strong><?= $product['id'] ?></strong>
-<p><?= $product['name'] ?></p>
+<ul>
+    <li>Product ID: <strong><?= $product['id'] ?></strong></li>
+    <li>Product name: <strong><?= $product['name'] ?></strong></li>
+</ul>
 
 
 
